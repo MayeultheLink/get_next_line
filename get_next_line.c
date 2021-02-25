@@ -38,6 +38,5 @@ int		get_next_line(int fd, char **line)
 		tmp = NULL;
 		return (0);
 	}
-	else
-		return (1);
+	return (1);
 }
