@@ -27,7 +27,8 @@ int		get_next_line(int fd, char **line)
 		if (!(ret = read(fd, c, BUFFER_SIZE)))
 			break ;
 		c[ret] = '\0';
-		tmp[fd] = ft_filltmp(c, tmp[fd]);
+		if (!(tmp[fd] = ft_filltmp(c, tmp[fd])))
+			return (-1);
 	}
 	if (!(*line = ft_strdup(tmp[fd])))
 		return (-1);
@@ -37,6 +38,5 @@ int		get_next_line(int fd, char **line)
 		tmp[fd] = NULL;
 		return (0);
 	}
-	else
-		return (1);
+	return (1);
 }
